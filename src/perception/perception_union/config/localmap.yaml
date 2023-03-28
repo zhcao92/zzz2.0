@@ -1,0 +1,13 @@
+bitmap_path: /roi_map/png
+bitmap_type: png
+grid_width: 51.2
+grid_pixel: 512
+grid_x: 17
+grid_y: 37
+origin_lon: 116.14200170513072
+origin_lat: 39.90582185794227
+map_origin_x: 428191
+map_origin_y: 4417667
+zone_number: 50 
+zone_letter: 'S'
+

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Launch parameters -->
+  <arg name="output" default="screen" /> <!-- screen/log -->
+  <arg name="required" default="true" />
+  <arg name="respawn" default="false" />
+
+  <!-- Node parameters -->
+  <arg name="interface"    default="" />
+  <arg name="host_address"   default="192.168.110.105" />
+  <arg name="host_port"         default="2000" />
+  <arg name="target_address"   default="192.168.110.53" />
+  <arg name="target_port"         default="2000" />
+  <arg name="frame_id"     default="gnss" />
+  <arg name="frame_id_vel" default="utm" />
+  
+  <!-- Start the node -->
+  <node pkg="newton_m2_gnss" type="m2_gnss_node" name="m2_gnss_node" respawn="$(arg respawn)" required="$(arg required)" output="$(arg output)">
+    <param name="interface"    value="$(arg interface)" />
+    <param name="host_address"   value="$(arg host_address)" />
+    <param name="host_port"         value="$(arg host_port)" />
+    <param name="target_address"   value="$(arg target_address)" />
+    <param name="target_port"         value="$(arg target_port)" />
+    <param name="frame_id"     value="$(arg frame_id)" />
+    <param name="frame_id_vel" value="$(arg frame_id_vel)" />
+  </node>
+  
+</launch>

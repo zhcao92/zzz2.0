@@ -1,0 +1,32 @@
+<package>
+    <name>perception</name>
+    <version>1.0.0</version>
+    <description>The perception package</description>
+
+    <maintainer email="hongyan.pei@novauto.com.cn">Hongyan Pei</maintainer>
+
+    <license>BSD</license>
+
+    <author email="hongyan.pei@novauto.com.cn">Hongyan Pei</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <build_depend>roscpp</build_depend>
+    <build_depend>pcl_ros</build_depend>
+    <build_depend>sensor_msgs</build_depend>
+    <build_depend>geometry_msgs</build_depend>
+    <build_depend>autoware_msgs</build_depend>
+    <build_depend>nav_msgs</build_depend>
+    <build_depend>zzz_perception_msgs</build_depend>
+
+    <run_depend>roscpp</run_depend>
+    <run_depend>pcl_ros</run_depend>
+    <run_depend>sensor_msgs</run_depend>
+    <run_depend>geometry_msgs</run_depend>
+    <run_depend>autoware_msgs</run_depend>
+    <run_depend>nav_msgs</run_depend>
+    <run_depend>zzz_perception_msgs</run_depend>
+    <export>
+    </export>
+
+</package>

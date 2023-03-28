@@ -1,0 +1,13 @@
+# ground filter
+# <!-- we use 64 lidar -->
+sensor_mode: 32
+# <!-- Num of Iteration -->
+num_iter: 3
+# <!-- Num of LPR   64 = 20   32 = 8  -->
+num_lpr: 8
+# <!-- Seeds Threshold  0.60 -->
+th_seeds: 0.50
+# <!-- Distance Threshold -->
+th_dist: 0.35
+sensor_height: 2.0
+
