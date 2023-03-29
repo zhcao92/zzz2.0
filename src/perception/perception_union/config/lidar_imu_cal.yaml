@@ -1,0 +1,11 @@
+# xiaopeng
+lidar_imu_rotation: [
+    0.9995, 0.0314, -0.0063, 
+    -0.0312, 0.9991, 0.0303, 
+    0.0073, -0.0301, 0.9995]
+lidar_imu_translation: [1.02, 0.0, 1.09]
+# lidar_imu_rotation: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+# lidar_imu_translation: [3.0, -0.2, 1.09]
+# cutecar
+# lidar_imu_rotation: [0.99937, 0.012445, -0.033362, -0.011884, 0.99979, 0.016985, 0.033566, -0.016578, 0.9993]
+# lidar_imu_translation: [0.573, 0.0, 0.83463]

@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/install
+
+Name: xp_g3
+Description: Description of xp_g3
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

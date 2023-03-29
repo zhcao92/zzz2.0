@@ -1,0 +1,1 @@
+rosbag record /zzz/navigation/ego_pose /gps/fix /imu/data /localization/gps/fix /localization/imu/data -o $1

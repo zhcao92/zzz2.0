@@ -1,0 +1,12 @@
+<launch>
+    <arg name="waypoint_topic" default="/carla/ego_vehicle/waypoints"/>
+
+    <node pkg="zzz_navigation_map_provider_sumo" type="waypoint_tester"
+            name="global_trajactory" ns="/navigation" output="screen">
+    </node>
+
+    <node pkg="zzz_navigation_map_provider_sumo" type="native_map_generator"
+        name="static_map_builder" output="screen" ns="/navigation">
+      <param name="reference_path_topic" value="$(arg waypoint_topic)"/>
+    </node>
+</launch>

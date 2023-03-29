@@ -1,0 +1,18 @@
+point_cloud_topic: /rslidar_points
+local_odom_topic: /localization/gps/odom
+local_map_topic: localmap
+detect_objects_topic: /detection/lidar_detector/objects
+track_objects_topic: /detection/object_tracker/objects
+zzz_track_objects_topic: /zzz/perception/objects_tracked
+occupancy_map_topic: /map/roi
+  
+filtered_cloud_topic: /middle/cluster/roi
+filtered_cloud_ground_topic: /middle/cluster/ground
+filtered_cloud_objects_topic: /middle/cluster/objects
+
+use_zzz: true
+use_autoware: true
+use_lidar: true
+use_cam: false
+use_radar: false
+use_map: false

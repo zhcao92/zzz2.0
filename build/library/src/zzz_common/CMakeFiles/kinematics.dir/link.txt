@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -Wl,--unresolved-symbols=ignore-all -Wl,--version-script="/home/qzl/Workspace/zzz2/build/library/src/zzz_common/CMakeFiles/kinematics-version-script.map" -shared  -o /home/qzl/Workspace/zzz2/devel/lib/python2.7/dist-packages/zzz_common/kinematics.so CMakeFiles/kinematics.dir/kinematics.cxx.o 

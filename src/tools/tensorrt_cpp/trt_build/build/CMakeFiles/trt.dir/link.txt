@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -std=c++11 -O2  -shared -Wl,-soname,libtrt.so -o libtrt.so CMakeFiles/trt.dir/src/Trt.cpp.o CMakeFiles/trt.dir/src/config.cpp.o  -L/opt/TensorRT-7.0.0.11/lib -Wl,-rpath,/opt/TensorRT-7.0.0.11/lib /usr/local/cuda-10.2/lib64/libcudart_static.a -lpthread -ldl -lrt 

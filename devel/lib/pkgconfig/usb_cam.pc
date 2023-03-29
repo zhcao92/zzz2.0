@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/devel
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.6
+Cflags: -I/home/qzl/Workspace/zzz2/src/driver/camera/usb_cam/include
+Libs: -L${prefix}/lib -lusb_cam
+Requires: 

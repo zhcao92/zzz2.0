@@ -1,0 +1,6 @@
+# duration_path: /home/phy/shared_dir/duration
+# benchmark_path: 
+use_point_pillars: false  
+use_cluster: false
+use_ground_filter: false
+use_tracker: true

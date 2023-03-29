@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/install
+
+Name: zzz_visualization_web_dash
+Description: Description of zzz_visualization_web_dash
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

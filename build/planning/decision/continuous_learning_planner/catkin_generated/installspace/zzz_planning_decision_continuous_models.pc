@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/install
+
+Name: zzz_planning_decision_continuous_models
+Description: Description of zzz_planning_decision_continuous_models
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

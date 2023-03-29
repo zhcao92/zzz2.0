@@ -1,0 +1,61 @@
+ <launch>
+  <!-- all three lidar  -->
+  <!-- <include file="$(find rslidar_sync)/launch/middle_lidar.launch">  
+  </include>  -->
+  <!-- <include file="$(find rslidar_sdk)/launch/start.launch">
+  </include> -->
+
+  <!-- gnss PP7 module -->
+  <include file="$(find newton_m2_gnss)/launch/gnss.launch">  
+  </include>
+
+  <!-- sensing cam. param: 1280x720 -->
+  <!-- <include file="$(find miivii_gmsl_ros)/launch/apex1.launch">  
+  </include>   -->
+
+  <!-- gnss M2 module >
+  <include file="$(find newton_m2_gnss)/launch/gnss.launch">  
+  </include>
+  <include file="$(find canbus_m2)/launch/canbus.launch">  
+  </include-->
+
+  <!-- gnss huace module-->
+  <!-- <include file="$(find huace_cgi_gnss)/launch/gnss.launch">  
+  </include>
+  <include file="$(find canbus_huace)/launch/canbus.launch">  
+  </include> -->
+
+  <!-- continental radar >
+  <include file="$(find continental_radar)/launch/continental_radar.launch">  
+  </include-->
+  
+  <!-- srr radar  >
+  <include file="$(find srr_radar)/launch/srr_radar.launch">  
+  </include-->
+
+  <!-- us radar -->
+  <!-- <include file="$(find us_radar)/launch/usradar.launch">  
+  </include> -->
+
+  <!-- localization module -->
+  <!-- <include file="$(find oxford_gps_eth)/launch/gps.launch">  
+  </include> -->
+
+  <include file="$(find global_localization)/launch/global_fusion_pp7.launch">  
+  </include>
+
+  <include file="$(find usb_cam)/launch/usb_cam-test.launch">
+  </include>
+
+  <node pkg="rslidar_sdk" name="rslidar_sdk_node" type="rslidar_sdk_node" output="screen">
+    <param name="config_path" value="$(find rslidar_sdk)/config/config.yaml"/>
+  </node>
+
+  <include file="$(find canbus)/launch/canbus.launch">  
+  </include>
+<!-- 
+  <include file="$(env ZZZ_ROOT)/zzz/config/launch/full_stack/perception_union_cnnseg_xavier.launch">
+  </include> -->
+  
+</launch>
+

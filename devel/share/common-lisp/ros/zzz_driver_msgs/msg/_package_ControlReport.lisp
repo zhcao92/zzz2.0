@@ -1,0 +1,20 @@
+(cl:in-package zzz_driver_msgs-msg)
+(cl:export '(THROTTLE_AVAILABLE-VAL
+          THROTTLE_AVAILABLE
+          THROTTLE_OVERRIDE-VAL
+          THROTTLE_OVERRIDE
+          THROTTLE_REPORT-VAL
+          THROTTLE_REPORT
+          BRAKE_AVAILABLE-VAL
+          BRAKE_AVAILABLE
+          BRAKE_OVERRIDE-VAL
+          BRAKE_OVERRIDE
+          BRAKE_REPORT-VAL
+          BRAKE_REPORT
+          STEER_AVAILABLE-VAL
+          STEER_AVAILABLE
+          STEER_OVERRIDE-VAL
+          STEER_OVERRIDE
+          STEER_REPORT-VAL
+          STEER_REPORT
+))

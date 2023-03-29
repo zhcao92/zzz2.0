@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/devel
+
+Name: zzz_cognition_msgs
+Description: Description of zzz_cognition_msgs
+Version: 0.1.0
+Cflags: -I/home/qzl/Workspace/zzz2/devel/include
+Libs: -L${prefix}/lib 
+Requires: std_msgs geometry_msgs zzz_perception_msgs zzz_navigation_msgs zzz_driver_msgs

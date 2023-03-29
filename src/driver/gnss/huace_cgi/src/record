@@ -1,0 +1,48 @@
+process[gnss_node-1]: started with pid [32695]
+[ INFO] [1589975321.204235217]: [GNSS - huace cgi]fcntl = 0
+[ INFO] [1589975321.215145107]: [GNSS - huace cgi]isatty success!
+[ INFO] [1589975321.215350012]: [GNSS - huace cgi]fd-open = 10
+[ INFO] [1589975321.215452321]: [GNSS - huace cgi] open port seccessful.
+[ INFO] [1589975321.215600711]: [GNSS - huace cgi]set done!
+[ INFO] [1589975321.215688427]: [GNSS - huace cgi] baud_rate is 460800 and nBits is 8 and nEvent is N and nStop is 1
+[ INFO] [1589975321.219184134]: [GNSS - huace cgi]fcntl = 0
+[ INFO] [1589975321.219517300]: [GNSS - huace cgi]isatty success!
+[ INFO] [1589975321.219778528]: [GNSS - huace cgi]fd-open = 12
+[ INFO] [1589975321.219995402]: [GNSS - huace cgi]set done!
+[ INFO] [1589975321.236008397]: [HUACA] buf_index and total_size 0,388
+[ INFO] [1589975321.236396703]: buf_index and size is 0, 388
+[ INFO] [1589975321.236540741]: [HUACA] return buf_index 0
+[ INFO] [1589975321.236722157]: [HUACA] remain_len and total_size is 388, 388
+[ INFO] [1589975321.236896885]: [HUACA] message_id 268
+[ INFO] [1589975321.237030203]: [HUACA] RAWIMU
+[ INFO] [1589975321.237172289]: [HUACA] buf_index is and remain_len is 68, 320
+[ INFO] [1589975321.237296294]: [HUACA] buf_index and total_size 68,388
+[ INFO] [1589975321.237471918]: buf_index and size is 68, 388
+[ INFO] [1589975321.237545393]: [HUACA] return buf_index 73
+[ INFO] [1589975321.237616116]: [HUACA] remain_len and total_size is 315, 388
+[ INFO] [1589975321.237726457]: [HUACA] message_id 507
+[ INFO] [1589975321.237804701]: [HUACA] INSPVA
+[ INFO] [1589975321.238088905]: [HUACA] buf_index is and remain_len is 189, 199
+[ INFO] [1589975321.238301075]: [HUACA] buf_index and total_size 189,388
+[ INFO] [1589975321.238567390]: buf_index and size is 189, 388
+[ INFO] [1589975321.238706981]: [HUACA] return buf_index 194
+[ INFO] [1589975321.238813353]: [HUACA] remain_len and total_size is 194, 388
+[ INFO] [1589975321.238882092]: [HUACA] message_id 268
+[ INFO] [1589975321.239232860]: [HUACA] RAWIMU
+[ INFO] [1589975321.239375970]: [HUACA] buf_index is and remain_len is 262, 126
+[ INFO] [1589975321.239562122]: [HUACA] buf_index and total_size 262,388
+[ INFO] [1589975321.239710289]: buf_index and size is 262, 388
+[ INFO] [1589975321.239793269]: [HUACA] return buf_index 267
+[ INFO] [1589975321.239865848]: [HUACA] remain_len and total_size is 121, 388
+[ INFO] [1589975321.239933467]: [HUACA] message_id 507
+[ INFO] [1589975321.240092066]: [HUACA] INSPVA
+[ INFO] [1589975321.240235144]: [HUACA] buf_index is and remain_len is 383, 5
+[ INFO] [1589975321.240348749]: [HUACA] buf_index and total_size 383,388
+[ INFO] [1589975321.240488083]: buf_index and size is 383, 388
+[ INFO] [1589975321.247362819]: [HUACA] buf_index and total_size 0,199
+[ INFO] [1589975321.247602158]: buf_index and size is 0, 199
+[ INFO] [1589975321.247769045]: [HUACA] return buf_index 0
+[ INFO] [1589975321.247932700]: [HUACA] remain_len and total_size is 199, 199
+[ INFO] [1589975321.248164231]: [HUACA] message_id 43532
+[ INFO] [1589975321.248292428]: [HUACA] buf_index and total_size 0,199
+

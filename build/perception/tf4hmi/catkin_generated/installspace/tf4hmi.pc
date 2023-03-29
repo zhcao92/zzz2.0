@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/install
+
+Name: tf4hmi
+Description: Description of tf4hmi
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp nav_msgs sensor_msgs geometry_msgs tf

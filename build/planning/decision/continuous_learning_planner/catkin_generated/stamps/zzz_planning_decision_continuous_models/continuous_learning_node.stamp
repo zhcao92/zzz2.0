@@ -1,0 +1,157 @@
+#!/usr/bin/env python
+
+import rospy
+import traceback
+import socket
+from zzz_common.params import parse_private_args
+from zzz_cognition_msgs.msg import MapState
+from zzz_navigation_msgs.msg import Map
+from zzz_planning_decision_lane_models.local_trajectory import Werling_planner, PolylineTrajectory #FIXME(ksj)
+from zzz_planning_msgs.msg import DecisionTrajectory
+from nav_msgs.msg import Path
+from geometry_msgs.msg import PoseStamped
+from visualization_msgs.msg import Marker, MarkerArray
+import pickle
+import sys
+from Agent.zzz.dynamic_map import DynamicMap, Lane, Lanepoint, Vehicle
+from Agent.zzz.actions import TrajectoryAction
+
+class ContLearingNode(object):
+    def __init__(self):
+
+        params = parse_private_args(
+            decision_trajectory_topic="decision_trajectory",
+            dynamic_map_topic="/zzz/cognition/local_dynamic_map/map_with_ref",
+            static_map_topic="/zzz/navigation/local_static_map",
+            RVIZ_decision_trajectory_topic="decision_trajectory_path", 
+            RVIZ_all_trajectory_topic="all_trajectory_path", 
+            RVIZ_predi_trajectory_topic="predi_trajectory_path", 
+            RVIZ_collision_circle_topic="collision_circle", 
+            hz = 5,
+        )
+
+        self.dmap_buffer = None
+        self.dmap = DynamicMap()
+
+        #------------------------socket_client_init------------------------------#
+        # receive the data from the server
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        host = '127.0.0.1'
+        port = 2345
+        server_address = (host, port)
+        client_socket.connect(server_address)
+        self.client_socket = client_socket
+
+        
+        #------------------------Subscriber--------------------------#
+        self._dynamic_map_subscriber = rospy.Subscriber(params.dynamic_map_topic, MapState, self.receive_dynamic_map)
+
+
+        #------------------------Publishers--------------------------#
+        self._decision_trajectory_publisher = rospy.Publisher(params.decision_trajectory_topic, DecisionTrajectory, queue_size=1)
+        self._rviz_decision_trajectory_publisher = rospy.Publisher(params.RVIZ_decision_trajectory_topic, Path, queue_size=1)
+        self._rviz_all_trajectory_publisher = rospy.Publisher(params.RVIZ_all_trajectory_topic, MarkerArray, queue_size=1)
+        self._rviz_predi_trajectory_publisher = rospy.Publisher(params.RVIZ_predi_trajectory_topic, MarkerArray, queue_size=1)
+        self._rviz_collision_circle_publisher = rospy.Publisher(params.RVIZ_collision_circle_topic, MarkerArray, queue_size=1)
+        
+        #------------------------Others------------------------------#
+        self._rate = rospy.Rate(params.hz)
+
+
+    def loop(self):
+        while not rospy.is_shutdown():
+            # print("!!!!!!!!!!!!!we are hear 111")
+            publish_msg = None
+            if self.dmap_buffer is None:
+                # print("!!!!!!!!!!!!!we are hear 11122")
+
+                # ------------make a temp dmap for test-----------------#
+                # M = MapState()
+                # self.dmap_buffer = M
+                # # temp_Dmap.update_map_from_zzz_MapState(M)
+                # print("generate temp_damp for test")
+                continue
+            # generate trajectory
+            try:
+                self.dmap.update_map_from_zzz_MapState(self.dmap_buffer)
+                sent_dmap = pickle.dumps(self.dmap,protocol=1)
+
+                # print(type(sent_dmap),sent_dmap)
+                # str object
+                # sent_dmap = json.dumps(self.dmap)
+                # print(type(sent_dmap),sent_dmap)
+                # publish trajectory
+                self.client_socket.sendall(sent_dmap) # qzl:py2, send str
+                print("end pub")
+
+                # receive trajectory
+                traj_data = self.client_socket.recv(81920)#qzl:about 40000B
+                print(type(traj_data),sys.getsizeof(traj_data))
+                # print('',traj_data)
+                # bytes object
+                print("end sub")
+
+                trajectory_action = pickle.loads(traj_data)
+                print("received_traj: ", trajectory_action)
+                print(trajectory_action.trajectory[:,:2])
+                # [generated_trajectory.x, generated_trajectory.y, 
+                #  generated_trajectory.yaw, generated_trajectory.s_d,
+                #  generated_trajectory.s, generated_trajectory.s_dd, 
+                #  generated_trajectory.c ]
+                if trajectory_action:
+
+                    publish_msg = DecisionTrajectory()
+                    publish_msg.trajectory = self.convert_ndarray_to_pathmsg(trajectory_action.trajectory) # TODO: move to library
+                    publish_msg.desired_speed = trajectory_action.desired_speed
+                else:
+                    rospy.logwarn("No feasible solution (received None from the server)!")
+
+
+            except Exception as e:
+                rospy.logerr("Planning (RL): !!! {} \n {}".format(e.message, traceback.format_exc()))
+                # break
+                pass
+            
+            # publish trajectory
+            if publish_msg:
+                self._decision_trajectory_publisher.publish(publish_msg)
+                self._rviz_decision_trajectory_publisher.publish(publish_msg.trajectory)
+                rospy.loginfo(" Planning (lanes): Publish Trajectory length = %d, desired_speed = %f km/h",
+                    len(publish_msg.trajectory.poses), publish_msg.desired_speed[-1]*3.6)
+
+                # self.pub_rviz()
+            self._rate.sleep()
+
+    def convert_ndarray_to_pathmsg(self, path): 
+        msg = Path()
+        for wp in path:
+            pose = PoseStamped()
+            pose.header.frame_id = "map"
+            pose.pose.position.x = wp[0]
+            pose.pose.position.y = wp[1]
+            msg.poses.append(pose)
+
+        msg.header.stamp = rospy.Time.now()
+        msg.header.frame_id = "map"
+        return msg
+
+    def receive_dynamic_map(self,dynamic_map):
+        self.dmap_buffer = dynamic_map
+
+    # ??
+    def pub_rviz(self):
+        all_trajectory, obs_paths, collision_circle = self._decision_instance._local_trajectory_instance.get_rviz_info()
+        
+        if all_trajectory:
+            self._rviz_all_trajectory_publisher.publish(all_trajectory)
+        if obs_paths:
+            self._rviz_predi_trajectory_publisher.publish(obs_paths)
+        if collision_circle:
+            self._rviz_collision_circle_publisher.publish(collision_circle)
+
+
+if __name__ == "__main__":
+
+    rospy.init_node("ContLearingNode", log_level=rospy.DEBUG)
+    node = ContLearingNode()
+    node.loop()

@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/devel
+
+Name: zzz_navigation_map_filter
+Description: Description of zzz_navigation_map_filter
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

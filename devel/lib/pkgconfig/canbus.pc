@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/devel
+
+Name: canbus
+Description: Description of canbus
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

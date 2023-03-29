@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Launch parameters -->
+  <arg name="output" default="screen" /> <!-- screen/log -->
+  <arg name="required" default="true" />
+  <arg name="respawn" default="false" />
+
+  <!-- Node parameters -->
+  <arg name="baud_rate"    default="460800" />
+  <arg name="nBits"   default="8" />
+  <arg name="nEvent"         default="N" />
+  <arg name="nStop"   default="1" />
+  <arg name="frame_id"     default="gnss" />
+  <arg name="frame_id_vel" default="utm" />  
+  <arg name="loop_rate232"     default="103" />
+  <arg name="loop_rate422"     default="105" />
+  <arg name="debug" default="true" />
+
+  <!-- Start the node -->
+  <node pkg="huace_cgi_gnss" type="gnss_node" name="gnss_node" respawn="$(arg respawn)" required="$(arg required)" output="$(arg output)">
+    <param name="baud_rate"    value="$(arg baud_rate)" />
+    <param name="nBits"   value="$(arg nBits)" />
+    <param name="nEvent"         value="$(arg nEvent)" />
+    <param name="nStop"   value="$(arg nStop)" />
+    <param name="frame_id"     value="$(arg frame_id)" />
+    <param name="frame_id_vel" value="$(arg frame_id_vel)" />
+    <param name="loop_rate232" value="$(arg loop_rate232)" />
+    <param name="loop_rate422" value="$(arg loop_rate422)" />
+    <param name="debug" value="$(arg debug)" />
+  </node>
+  
+</launch>

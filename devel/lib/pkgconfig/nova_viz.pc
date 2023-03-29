@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/devel
+
+Name: nova_viz
+Description: Description of nova_viz
+Version: 0.0.0
+Cflags: -I/home/qzl/Workspace/zzz2/src/visualization/nova_viz/include/nova_viz
+Libs: -L${prefix}/lib -lnova_viz
+Requires: 

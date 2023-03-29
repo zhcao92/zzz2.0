@@ -1,0 +1,2 @@
+set(xpmotors_can_msgs_MESSAGE_FILES "/home/qzl/Workspace/zzz2/src/driver/messages/xpmotors_can_msgs/msg/AutoCtlReq.msg;/home/qzl/Workspace/zzz2/src/driver/messages/xpmotors_can_msgs/msg/AutoState.msg;/home/qzl/Workspace/zzz2/src/driver/messages/xpmotors_can_msgs/msg/AutoStateEx.msg;/home/qzl/Workspace/zzz2/src/driver/messages/xpmotors_can_msgs/msg/EPSStatus.msg;/home/qzl/Workspace/zzz2/src/driver/messages/xpmotors_can_msgs/msg/ESCStatus.msg")
+set(xpmotors_can_msgs_SERVICE_FILES "")

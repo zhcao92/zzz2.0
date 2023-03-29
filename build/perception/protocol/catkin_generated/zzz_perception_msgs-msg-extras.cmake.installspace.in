@@ -1,0 +1,2 @@
+set(zzz_perception_msgs_MESSAGE_FILES "msg/BoundingBox.msg;msg/BoundingBox2D.msg;msg/DetectionBox.msg;msg/DetectionBox2D.msg;msg/DetectionBox2DArray.msg;msg/DetectionBoxArray.msg;msg/Dimension2DWithCovariance.msg;msg/DimensionWithCovariance.msg;msg/LaneDetection.msg;msg/LaneDetectionArray.msg;msg/ObjectClass.msg;msg/ObjectSignals.msg;msg/Pose2DWithCovariance.msg;msg/TrackingBox.msg;msg/TrackingBoxArray.msg;msg/CooperativeMsg.msg")
+set(zzz_perception_msgs_SERVICE_FILES "")

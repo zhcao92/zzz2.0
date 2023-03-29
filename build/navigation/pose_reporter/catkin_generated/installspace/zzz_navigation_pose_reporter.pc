@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/install
+
+Name: zzz_navigation_pose_reporter
+Description: Description of zzz_navigation_pose_reporter
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

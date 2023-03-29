@@ -1,0 +1,1 @@
+catkin_make -DCATKIN_WHITELIST_PACKAGES="zzz_driver_msgs;zzz_perception_msgs;zzz_navigation_msgs;zzz_cognition_msgs;zzz_planning_msgs;zzz_common;zzz_planning_decision_continuous_models"

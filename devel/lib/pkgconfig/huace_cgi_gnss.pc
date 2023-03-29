@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/devel
+
+Name: huace_cgi_gnss
+Description: Description of huace_cgi_gnss
+Version: 0.0.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

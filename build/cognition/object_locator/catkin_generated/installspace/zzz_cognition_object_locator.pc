@@ -1,0 +1,8 @@
+prefix=/home/qzl/Workspace/zzz2/install
+
+Name: zzz_cognition_object_locator
+Description: Description of zzz_cognition_object_locator
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

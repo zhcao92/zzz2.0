@@ -1,0 +1,41 @@
+# duration_path: 
+# benchmark_path: 
+engine_file: /../../models/pointpillars/pointpillars-1-x86.onnx_FP32.trt
+ 
+use_gpu: true
+gpu_device_id: 0
+
+min_horizontal: -25.0 
+max_horizontal: 25.0
+min_vertical: -50.0
+max_vertical: 50.0
+min_height: -0.5
+max_height: 3.5 
+max_pillar_num: 20000
+max_point_num: 32
+feature_channel: 3
+width: 320
+height: 640
+channel: 32
+
+score_car_threshold: 0.4
+score_ped_cyc_threshold: 0.3
+nms_threshold: 0.2 
+class_num: 2
+dims_car_channel: 9
+dims_car_height: 320
+dims_car_width: 160
+dims_ped_cyc_channel: 22
+dims_ped_cyc_height: 640
+dims_ped_cyc_width: 320
+cls0_anchor_x: 10.24 
+cls0_anchor_y: 24.96
+cls0_anchor_z: 0.0  
+cls1_anchor_x: 3.84 
+cls1_anchor_y: 5.12
+cls1_anchor_z: 0.0  
+cls2_anchor_x: 3.84 
+cls2_anchor_y: 11.264
+cls2_anchor_z: 0.0
+NUM_THREADS: 64
+
